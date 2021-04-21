@@ -1,5 +1,30 @@
 {
   "devDependencies": {
     "concurrently": "^6.0.2"
-  }
+  },
+  "dependencies": {
+    "if-env": "^1.0.4"
+  },
+  "name": "chattycathy",
+  "description": "A Chat application",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "cd server && npm start",
+    "start:dev": "concurrently \"cd server && npm run devStart\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhowe21/ChattyCathy.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhowe21/ChattyCathy/issues"
+  },
+  "homepage": "https://github.com/mhowe21/ChattyCathy#readme"
 }
