@@ -1,14 +1,14 @@
 {
-  "devDependencies": {
-    "concurrently": "^6.0.2"
-  },
-  "dependencies": {
-    "if-env": "^1.0.4"
-  },
   "name": "chattycathy",
   "description": "A Chat application",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/server.js",
+  "author": "Mason Howe, Russ Tracy, Zac Farnworth",
+  "homepage": "https://github.com/mhowe21/ChattyCathy#readme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhowe21/ChattyCathy/issues"
+  },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cd server && npm start",
@@ -21,10 +21,10 @@
     "type": "git",
     "url": "git+https://github.com/mhowe21/ChattyCathy.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mhowe21/ChattyCathy/issues"
+  "devDependencies": {
+    "concurrently": "^6.0.2"
   },
-  "homepage": "https://github.com/mhowe21/ChattyCathy#readme"
+  "dependencies": {
+    "if-env": "^1.0.4"
+  }
 }
