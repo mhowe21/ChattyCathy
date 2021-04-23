@@ -25,8 +25,6 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-//create socket.io
-
 // integrate Apollo server with the Express application as middleware
 server.applyMiddleware({ app });
 
