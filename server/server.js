@@ -13,7 +13,15 @@ const { isObjectType } = require("graphql");
 const PORT = process.env.PORT || 3030;
 const app = express();
 const http = require("http").createServer(app);
-const io = require("socket.io")(http);
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["my-custom-header"],
+    credentials: true,
+  },
+});
+const STATIC_CHANNELS = ["global_notifications", "global_chat"];
 
 // create a new Apollo server and pass in our schema data
 const server = new ApolloServer({
@@ -41,4 +49,5 @@ db.once("open", () => {
 //socket io
 io.on("connection", (socket) => {
   console.log("new client connected");
+  socket.emit("connection", null);
 });
