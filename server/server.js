@@ -21,7 +21,6 @@ const io = require("socket.io")(http, {
     credentials: true,
   },
 });
-const STATIC_CHANNELS = ["global_notifications", "global_chat"];
 
 // create a new Apollo server and pass in our schema data
 const server = new ApolloServer({
@@ -48,6 +47,18 @@ db.once("open", () => {
 
 //socket io
 io.on("connection", (socket) => {
-  console.log("new client connected");
-  socket.emit("connection", null);
+  const id = socket.handshake.query.id;
+  socket.join(id);
+
+  socket.on("send-message", ({ recipients, text }) => {
+    recipients.forEach((recipient) => {
+      const newRecipients = recipients.filter((r) => r !== recipient);
+      newRecipients.push(id);
+      socket.broadcast.to(recipient).emit("receive-message", {
+        recipients: newRecipients,
+        sender: id,
+        text,
+      });
+    });
+  });
 });
