@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import io from "socket.io-client";
-const HOST = "http://localhost:3030";
+const HOST =
+  "https://stark-escarpment-67979.herokuapp.com:9352/socket.io/?EIO=4&transport=websocket";
 
 const SocketContext = React.createContext();
 
@@ -14,7 +15,6 @@ export function SocketProvider({ id, children }) {
   useEffect(() => {
     const newSocket = io(HOST, {
       query: { id },
-      withCredentials: true,
       extraHeaders: {
         "my-custom-header": "abcd",
       },
