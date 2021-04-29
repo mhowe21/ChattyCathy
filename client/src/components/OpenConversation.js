@@ -40,7 +40,7 @@ export default function OpenConversation() {
               >
                 <div
                   className={`rounded px-2 py-1 ${
-                    message.fromMe ? "bg-info text-white" : "border"
+                    message.fromMe ? "bg-success text-white" : "border"
                   }`}
                 >
                   {message.text}
@@ -68,7 +68,7 @@ export default function OpenConversation() {
               style={{ height: "75px", resize: "none" }}
             />
             <InputGroup.Append>
-              <Button variant="info" type="submit">
+              <Button className="has-background-info-dark" type="submit">
                 Send
               </Button>
             </InputGroup.Append>

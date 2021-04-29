@@ -9,8 +9,7 @@ export default function Conversations() {
     <ListGroup variant="flush">
       {conversations.map((conversation, index) => (
         <ListGroup.Item
-          className="bg-info text-white mt-2"
-          variant="info"
+          className="has-background-info-dark	 text-white mt-2"
           key={index}
           action
           onClick={() => selectConversationIndex(index)}

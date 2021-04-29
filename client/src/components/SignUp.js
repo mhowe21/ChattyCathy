@@ -1,9 +1,8 @@
 import React, { useRef, useState } from "react";
 import { Container, Form, Button, Modal } from "react-bootstrap";
 import { v4 as uuidV4 } from "uuid";
-import SignUp from "./SignUp";
 
-export default function Login({ onIdSubmit }) {
+export default function SignUp(onIdSubmit) {
   const idRef = useRef();
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -15,10 +14,6 @@ export default function Login({ onIdSubmit }) {
 
   function createNewId() {
     onIdSubmit(uuidV4());
-  }
-
-  function closeModal() {
-    setModalOpen(false);
   }
 
   return (
@@ -43,10 +38,6 @@ export default function Login({ onIdSubmit }) {
           Sign Up 2
         </Button>
       </Form>
-
-      <Modal show={modalOpen} onHide={closeModal}>
-        <SignUp />
-      </Modal>
     </Container>
   );
 }
