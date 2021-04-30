@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const historySchema = require("./history");
+const contactsSchema = require("./contacts");
 const bcrypt = require("bcrypt");
 
 const userSchema = new Schema(
@@ -21,6 +22,7 @@ const userSchema = new Schema(
       required: true,
       minlength: 5,
     },
+    contacts: [contactsSchema],
     history: [historySchema],
   },
   {
