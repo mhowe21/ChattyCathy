@@ -5,18 +5,24 @@ import Dashboard from "./Dashboard";
 import { ContactsProvider } from "../contexts/ContactsProvider";
 import { ConversationsProvider } from "../contexts/ConversationsProvider";
 import { SocketProvider } from "../contexts/SocketProvider";
+import { ApolloProvider } from "@apollo/react-hooks";
+import ApolloClient from "apollo-boost";
+
+const client = new ApolloClient();
 
 function App() {
   const [id, setId] = useLocalStorage("id");
 
   const dashboard = (
-    <SocketProvider id={id}>
-      <ContactsProvider>
-        <ConversationsProvider id={id}>
-          <Dashboard id={id} />
-        </ConversationsProvider>
-      </ContactsProvider>
-    </SocketProvider>
+    <ApolloProvider client={client}>
+      <SocketProvider id={id}>
+        <ContactsProvider>
+          <ConversationsProvider id={id}>
+            <Dashboard id={id} />
+          </ConversationsProvider>
+        </ContactsProvider>
+      </SocketProvider>
+    </ApolloProvider>
   );
 
   return id ? dashboard : <Login onIdSubmit={setId} />;
