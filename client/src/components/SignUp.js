@@ -23,19 +23,15 @@ export default function SignUp(onIdSubmit) {
     >
       <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>
+          <Form.Label>Email</Form.Label>
+          <Form.Control type="email" />
           <Form.Label>Username</Form.Label>
           <Form.Control type="text" />
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" ref={idRef} />
         </Form.Group>
-        <Button type="submit" className="has-background-info-dark mr-2">
-          Login
-        </Button>
         <Button onClick={createNewId} variant="secondary">
           Sign Up
-        </Button>
-        <Button onClick={() => setModalOpen(true)} variant="secondary">
-          Sign Up 2
         </Button>
       </Form>
     </Container>

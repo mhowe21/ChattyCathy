@@ -29,9 +29,9 @@ export default function Login({ onIdSubmit }) {
       <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>
           <Form.Label>Username</Form.Label>
-          <Form.Control type="text" />
+          <Form.Control type="text" ref={idRef} />
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" ref={idRef} />
+          <Form.Control type="password" />
         </Form.Group>
         <Button type="submit" className="has-background-info-dark mr-2">
           Login
