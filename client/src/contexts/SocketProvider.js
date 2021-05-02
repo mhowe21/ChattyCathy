@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import io from "socket.io-client";
-const HOST = "http://localhost:3030";
+const HOST = window.location.hostname;
 
 const SocketContext = React.createContext();
 
@@ -14,7 +14,6 @@ export function SocketProvider({ id, children }) {
   useEffect(() => {
     const newSocket = io(HOST, {
       query: { id },
-      withCredentials: true,
       extraHeaders: {
         "my-custom-header": "abcd",
       },

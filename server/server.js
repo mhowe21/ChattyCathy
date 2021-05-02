@@ -18,7 +18,6 @@ const io = require("socket.io")(http, {
     origin: "*",
     methods: ["GET", "POST"],
     allowedHeaders: ["my-custom-header"],
-    credentials: true,
   },
 });
 
