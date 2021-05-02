@@ -24,22 +24,6 @@ const client = new ApolloClient({
 });
 
 
-// function App() {
-//   const [id, setId] = localStorage.getItem('id_token');
-//   return (
-//     <ApolloProvider client={client}>
-//       <SocketProvider id={id}>
-//         <ContactsProvider>
-//           <ConversationsProvider id={id}>
-//             <Dashboard id={id} />
-//           </ConversationsProvider>
-//         </ContactsProvider>
-//       </SocketProvider>
-//     </ApolloProvider >
-//   );
-// }
-
-
 function App() {
   const [id, setId] = useLocalStorage("id_token");
 
@@ -55,6 +39,7 @@ function App() {
     </ApolloProvider>
   );
 
+  // Adding login to the Apollo Provider fixed the apollo error we were getting. I am sure there is a better way to fix it.
   const login = (
     <ApolloProvider client={client}>
       <SocketProvider id={id}>
