@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import io from "socket.io-client";
-const HOST = window.location.hostname;
+const HOST = `${window.location.hostname}:9352/socket.io/?EIO=4&transport=websocket`;
 
 const SocketContext = React.createContext();
 
