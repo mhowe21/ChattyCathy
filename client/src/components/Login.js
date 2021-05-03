@@ -19,9 +19,9 @@ export default function Login({ onIdSubmit }) {
   //   onIdSubmit(uuidV4());
   // }
 
-  // function closeModal() {
-  //   setModalOpen(false);
-  // }
+  function closeModal() {
+    setModalOpen(false);
+  }
 
   const [modalOpen, setModalOpen] = useState(false);
   const [formState, setFormState] = useState({ email: "", password: "" });
