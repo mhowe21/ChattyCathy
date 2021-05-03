@@ -28,8 +28,7 @@ export default function SignUp(props) {
       variables: {
         email: formState.email,
         password: formState.password,
-        firstName: formState.firstName,
-        lastName: formState.lastName,
+        userName: formState.userName,
       },
     });
     const token = mutationResponse.data.addUser.token;
@@ -48,21 +47,13 @@ export default function SignUp(props) {
     <Container className="align-items-center d-flex" style={{ height: "50vh" }}>
       <Form onSubmit={handleFormSubmit} className="w-100">
         <Form.Group>
-          <Form.Label>First Name</Form.Label>
+          <Form.Label>User Name</Form.Label>
           <Form.Control
-            placeholder="First"
-            name="firstName"
-            type="firstName"
-            id="firstName"
-          />
-          <Form.Label>Last Name</Form.Label>
-          <Form.Control
-            placeholder="Last"
-            name="lastName"
-            type="lastName"
-            id="lastName"
-            onChange={handleChange}
+            placeholder="userName"
+            name="userName"
             type="text"
+            id="userName"
+            onChange={handleChange}
           />
           <Form.Label>Email</Form.Label>
           <Form.Control
