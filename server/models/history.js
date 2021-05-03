@@ -2,10 +2,12 @@ const { Schema } = require("mongoose");
 
 const historySchema = new Schema(
   {
-    message: {
-      type: String,
-      required: false,
-    },
+    messages: [
+      {
+        type: String,
+        required: false,
+      },
+    ],
     username: {
       type: String,
       required: true,
